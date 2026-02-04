@@ -52,19 +52,19 @@ Return the selected word
 
 generate_random_text
 
-     Set random number generator with seed
-     Determine the Markov model order at the time 
-     Create a starting state using “*S” order number
-     Set the current state to the start state
-     Create an empty list to store the generated random words
+Set random number generator with seed
+Determine the Markov model order at the time 
+Create a starting state using “*S” order number
+Set the current state to the start state
+Create an empty list to store the generated random words
 
-     Create a loop:  
-           Pick the next word based on the current state
-	   If the next word equals “*E”
-	   Stop generating words
-	   If not,
-           Add the word to the list
-	   To move to the next state, update the current state by dropping the oldest word and shifting to add the new word 
+Create a loop:  
+  Pick the next word based on the current state
+  If the next word equals “*E”
+  Stop generating words
+  If not,
+      Add the word to the list
+      To move to the next state, update the current state by dropping the oldest word and shifting to add the new word 
 
 Join all the generated words to form a sentence
 Return the sentence
@@ -94,6 +94,13 @@ Generate a random text sequence from the Markov model
 ```
 
 # Successes
+One of our biggest successes was that we learnt how a Markov model worked practically and how to implement them.
+
+
+# Struggles
+One struggle we faced was making current_word a tuple in the get_random_text function for n > 1. At first, the function we built was taking current_word as a string and trying to replace the tuple with a string. 
+We initially struggled with placing the random seed on the right function so that it doesn't cause the randomness to reset every call and potentially lead to repetitive outputs. 
+
 The most rewarding part of this project was getting to collaborate amongst peers to resolve bugs and talk through ideas.
 An example of this comes from our generate_random_text() function. We initially had built it to only set the current word as the next word gathered from the get_next_word() function, which works fine for order = 1, but not so much for any other order. Our dilemma then became: 'how can we get every word from the current order of words except for it's very first element for orders greater than 1?' setting this new value equal to the current word would create a new tuple of words equal to the length of the order, with the next word included in the state.
 We were able to talk through strategies for this as a team, and ended up splicing the current word state tuple to include everything but it's first element, and add the current word to the tuple to create the proper state for the next function call of get_next_word.
@@ -111,6 +118,7 @@ Ultimately, continuing to communicate on teams when we were working individually
 Sneha: Jersha and Connor were both great group members. We were able to meet three times to work through the code together and problem solve.  I had never worked with Markov models before, so I found the implementation to be a little challenging  It was very helpful to talk through the logic involved in Markov model implementation in order find solutions for bugs in our code.
 
 ## Other member
+Aaronie Jersha Jenyfred: My group members were great to work with. This is my first time learning about Markov Models and I initially had a hard time understanding how to work around it but as a group we were able to co-ordinate very well in terms of building & debugging the code and trying to overcome some challenging errors. Discussing about the bugs and improvising the code together surely helped me understand the topic better. 
 Connor: This project helped build more comfortability with group work and coding/programming. Meeting with group members multiple times to talk through ideas, logic, and code was very helpful for progressing through the project and developing my understanding of the material.
 In regards to the actual project, I felt like I regained familiarity with nested dictionaries and implementing multiple control flow statements (elif ended up being very helpful, and it had been a while since I'd used it). This project required me to be more thoughtful in the debugging process, I had to slow down, and think about what part of the code bugs were most likely coming from, which I struggle to do at times. Print statements became my best friends in that process. I know our code isn't perfect as it is, and one thing I'm starting to realize is that refactoring is often warranted and helps you understand not just the code, but the ideas behind the code even better - a lesson I will be taking forward. With that in mind I think it will be interesting to see, considering these repos are continually active and can be changed, how much these projects get updated as we learn new things during the course.
 
